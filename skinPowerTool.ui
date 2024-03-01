@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SkinPowerTool_Main</class>
+ <widget class="QWidget" name="SkinPowerTool_Main">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>240</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>240</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>270</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>SkinPowerTool</string>
+  </property>
+  <widget class="QLineEdit" name="text_round">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>90</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_0">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>0</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_0_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_set">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>370</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_set_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_dot5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>.5</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_dot5_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_paste">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>420</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_paste_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>340</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_1_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_prune">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>41</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Prune</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_smooth">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>400</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Smooth</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_smooth_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_floatDown">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>370</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>25</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>v</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>set_float_down</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_grow">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>400</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Grow</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>select_grow</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_plus">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>370</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>25</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>+</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_plus_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_minus">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>370</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>25</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>-</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_minus_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_dot75">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>.75</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_dot75_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_round">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>41</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Round</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_dot25">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>250</y>
+     <width>30</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>30</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>.25</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_dot25_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_copy">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>400</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>weight_copy_btn</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="text_prune">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_floatUp">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>370</y>
+     <width>31</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>25</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>^</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>set_float_up</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_mirror">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>420</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Mirror</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>mirror_btn</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="text_doublespin">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="weights_list">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>220</y>
+     <width>51</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>100</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="jointsName_list">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>220</y>
+     <width>121</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="AlljointsName_list">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>30</y>
+     <width>171</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="text_search">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>150</y>
+     <width>121</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_append">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>172</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>↓↓ Append ↓↓</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>append_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_shrink">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>420</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Shrink</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>select_shrink</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>450</y>
+     <width>121</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Made by Sigen_Chang</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>10</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Mesh</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>200</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vertex</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>200</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Weights</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_search">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>150</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Search</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>append_btn</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_Donate">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>450</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>50</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Donate Me !</string>
+   </property>
+   <property name="+command" stdset="0">
+    <string>select_shrink</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
