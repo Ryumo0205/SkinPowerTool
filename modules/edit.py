@@ -26,7 +26,7 @@ class Edit:
         pm.skinPercent(info.skin_clusters, info.selected_vertices,
                        transformValue=input_pairs, normalize=True)
 
-        info.update_current_dict()
+        info.update_weights_data()
 
     # DONE:
 
