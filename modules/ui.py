@@ -3,7 +3,7 @@
 from modules.edit import edit
 from modules.information import info
 import modules.edit
-import modules.information
+# import modules.information
 import importlib
 import maya.cmds as cmds
 import os
@@ -58,6 +58,8 @@ class UI ():
         self.pushButton_round = None
         self.pushButton_set = None
         self.pushButton_Donate = None
+        self.pushButton_ObjMode = None
+        self.pushButton_VtxMode = None
 
         # 字串視窗
         self.text_search = None
@@ -96,10 +98,37 @@ class UI ():
             print("No window named '{}' found to close.".format(window_name))
 
     def create_main_window(self):
-       
+        # 關閉舊的 dockControl 和 window
+        if cmds.dockControl('SkinPowerToolDock', exists=True):
+            cmds.deleteUI('SkinPowerToolDock')
+        if cmds.window(self.window_name, exists=True):
+            cmds.deleteUI(self.window_name)
 
+        # 載入 UI
         self.main_window = cmds.loadUI(uiFile=self.ui_file)
 
+        # 建立一個新的 layout 作為 dockControl 的內容容器
+        if cmds.window("SkinPowerToolContainer", exists=True):
+            cmds.deleteUI("SkinPowerToolContainer")
+        self.container_window = cmds.window("SkinPowerToolContainer", title="SkinPowerTool Container", widthHeight=(300, 600))
+        self.container_layout = cmds.columnLayout(adjustableColumn=True)
+        
+        # 將載入的 UI 放入 container_layout
+        cmds.control(self.main_window, edit=True, parent=self.container_layout)
+        # cmds.control(self.main_window, edit=True)
+
+        # 顯示 container window
+        # cmds.showWindow(self.container_window)
+
+        # 建立 dockControl，讓 UI 可停靠，content 指向 container_window
+        self.dock = cmds.dockControl(
+            'SkinPowerToolDock',
+            label='SkinPowerTool',
+            area='right',
+            content=self.main_window,
+            allowedArea=['right', 'left', 'top', 'bottom'],
+            floating=False
+        )
 
         self.AlljointsName_list = cmds.textScrollList(
             self.main_window + r"|AlljointsName_list", edit=True)
@@ -108,55 +137,57 @@ class UI ():
         self.weights_list = cmds.textScrollList(
             self.main_window + r"|weights_list", edit=True)
 
-
         self.pushButton_grow = cmds.button(
-            self.main_window + r"|pushButton_grow", edit=True, command=self.select_grow)
+            self.main_window + r"|pushButton_grow", edit=True, command=lambda *args: self.select_grow(*args))
         self.pushButton_shrink = cmds.button(
-            self.main_window + r"|pushButton_shrink", edit=True, command=self.select_shrink)
+            self.main_window + r"|pushButton_shrink", edit=True, command=lambda *args: self.select_shrink(*args))
         self.pushButton_plus = cmds.button(
-            self.main_window + r"|pushButton_plus", edit=True, command=self.weight_plus_btn)
+            self.main_window + r"|pushButton_plus", edit=True, command=lambda *args: self.weight_plus_btn(*args))
         self.pushButton_minus = cmds.button(
-            self.main_window + r"|pushButton_minus", edit=True, command=self.weight_minus_btn)
+            self.main_window + r"|pushButton_minus", edit=True, command=lambda *args: self.weight_minus_btn(*args))
         self.pushButton_0 = cmds.button(
-            self.main_window + r"|pushButton_0", edit=True, command=self.weight_0_btn)
+            self.main_window + r"|pushButton_0", edit=True, command=lambda *args: self.weight_0_btn(*args))
         self.pushButton_dot25 = cmds.button(
-            self.main_window + r"|pushButton_dot25", edit=True, command=self.weight_dot25_btn)
+            self.main_window + r"|pushButton_dot25", edit=True, command=lambda *args: self.weight_dot25_btn(*args))
         self.pushButton_dot5 = cmds.button(
-            self.main_window + r"|pushButton_dot5", edit=True, command=self.weight_dot5_btn)
+            self.main_window + r"|pushButton_dot5", edit=True, command=lambda *args: self.weight_dot5_btn(*args))
         self.pushButton_dot75 = cmds.button(
-            self.main_window + r"|pushButton_dot75", edit=True, command=self.weight_dot75_btn)
+            self.main_window + r"|pushButton_dot75", edit=True, command=lambda *args: self.weight_dot75_btn(*args))
         self.pushButton_1 = cmds.button(
-            self.main_window + r"|pushButton_1", edit=True, command=self.weight_1_btn)
+            self.main_window + r"|pushButton_1", edit=True, command=lambda *args: self.weight_1_btn(*args))
         self.pushButton_floatUp = cmds.button(
-            self.main_window + r"|pushButton_floatUp", edit=True, command=self.set_float_up)
+            self.main_window + r"|pushButton_floatUp", edit=True, command=lambda *args: self.set_float_up(*args))
         self.pushButton_floatDown = cmds.button(
-            self.main_window + r"|pushButton_floatDown", edit=True, command=self.set_float_down)
+            self.main_window + r"|pushButton_floatDown", edit=True, command=lambda *args: self.set_float_down(*args))
         self.pushButton_append = cmds.button(
-            self.main_window + r"|pushButton_append", edit=True, command=self.append_btn)
+            self.main_window + r"|pushButton_append", edit=True, command=lambda *args: self.append_btn(*args))
         self.pushButton_search = cmds.button(
-            self.main_window + r"|pushButton_search", edit=True, command=self.search_btn)
+            self.main_window + r"|pushButton_search", edit=True, command=lambda *args: self.search_btn(*args))
         self.pushButton_copy = cmds.button(
-            self.main_window + r"|pushButton_copy", edit=True, command=self.weight_copy_btn)
+            self.main_window + r"|pushButton_copy", edit=True, command=lambda *args: self.weight_copy_btn(*args))
         self.pushButton_paste = cmds.button(
-            self.main_window + r"|pushButton_paste", edit=True, command=self.weight_paste_btn)
+            self.main_window + r"|pushButton_paste", edit=True, command=lambda *args: self.weight_paste_btn(*args))
         self.pushButton_smooth = cmds.button(
-            self.main_window + r"|pushButton_smooth", edit=True, command=self.weight_smooth_btn)
+            self.main_window + r"|pushButton_smooth", edit=True, command=lambda *args: self.weight_smooth_btn(*args))
         self.pushButton_mirror = cmds.button(
-            self.main_window + r"|pushButton_mirror", edit=True, command=self.mirror_btn)
+            self.main_window + r"|pushButton_mirror", edit=True, command=lambda *args: self.mirror_btn(*args))
         self.pushButton_prune = cmds.button(
-            self.main_window + r"|pushButton_prune", edit=True, command=self.prune_btn)
+            self.main_window + r"|pushButton_prune", edit=True, command=lambda *args: self.prune_btn(*args))
         self.pushButton_round = cmds.button(
-            self.main_window + r"|pushButton_round", edit=True, command=self.round_btn)
+            self.main_window + r"|pushButton_round", edit=True, command=lambda *args: self.round_btn(*args))
         self.pushButton_set = cmds.button(
-            self.main_window + r"|pushButton_set", edit=True, command=self.weight_set_btn)
+            self.main_window + r"|pushButton_set", edit=True, command=lambda *args: self.weight_set_btn(*args))
         self.pushButton_Donate = cmds.button(
-            self.main_window + r"|pushButton_Donate", edit=True, command=self.donate_page_btn)
+            self.main_window + r"|pushButton_Donate", edit=True, command=lambda *args: self.donate_page_btn(*args))
+        self.pushButton_ObjMode = cmds.button(
+            self.main_window + r"|pushButton_ObjMode", edit=True, command=lambda *args: self.obj_mode_btn(*args))
+        self.pushButton_VtxMode = cmds.button(
+            self.main_window + r"|pushButton_VtxMode", edit=True, command=lambda *args: self.vtx_mode_btn(*args))
 
-        
         self.text_search = cmds.textField(
-            self.main_window + r"|text_search", edit=True, placeholderText="Search Influencies",changeCommand=self.search_btn)
-        # cmds.textField(self.text_search, edit=True, changeCommand=self.search_btn)
+            self.main_window + r"|text_search", edit=True, placeholderText="Search Influencies", changeCommand=self.search_btn)
         
+
         self.text_doublespin = cmds.textField(
             self.main_window + r"|text_doublespin", edit=True, text="0.01")
         self.text_prune = cmds.textField(
@@ -164,18 +195,11 @@ class UI ():
         self.text_round = cmds.textField(
             self.main_window + r"|text_round", edit=True, text="2")
 
-        self.window = cmds.showWindow(self.main_window)
+        # dockControl 會自動顯示，不需呼叫 showWindow
 
     def show_ui(self):
-        
         self.close_ui(self.window_name)
         self.create_main_window()
-
-        if self.main_window is not None:
-            print("Showing window: {}".format(self.main_window))
-            cmds.showWindow(self.main_window)
-        else:
-            print("Failed to create main window.")
 
     def update_ui(self):
         """
@@ -194,7 +218,7 @@ class UI ():
                               edit=True, removeAll=True)
             cmds.textScrollList(self.jointsName_list, edit=True, removeAll=True)
             cmds.textScrollList(self.weights_list, edit=True, removeAll=True)
-            cmds.warning("get info failed")
+            print("get info failed")
             return
         else:
 
@@ -252,6 +276,7 @@ class UI ():
         cmds.textScrollList(self.jointsName_list, edit=True,
                         selectItem=self.edit_targets[0])
 
+        cmds.refresh()
         print(self.edit_targets, " + ", get_number)
 
     def weight_minus_btn(self, ignoreInputs):
@@ -277,6 +302,7 @@ class UI ():
         cmds.textScrollList(self.jointsName_list, edit=True,
                           selectItem=self.edit_targets[0])
 
+        cmds.refresh()
         print(self.edit_targets, " - ", get_number)
 
     def _set_weight(self, value=float):
@@ -294,6 +320,7 @@ class UI ():
         cmds.textScrollList(self.jointsName_list, edit=True,
                           selectItem=self.edit_targets[0])
 
+        cmds.refresh()
         print(self.edit_targets, " set ", value)
     
     def weight_0_btn(self, ignoreInputs):
@@ -323,6 +350,7 @@ class UI ():
         get_number = float(get_text)
 
         self._set_weight(get_number)
+        cmds.refresh()
 
     def set_float_up(self, ignoreInputs):
 
@@ -336,6 +364,7 @@ class UI ():
             final_float = round(now_float + 0.01, 2)
             to_string = str(final_float)
             cmds.textField(self.text_doublespin, edit=True, text=to_string)
+            cmds.refresh()
             print("float +", 0.1)
 
     def set_float_down(self, ignoreInputs):
@@ -350,6 +379,7 @@ class UI ():
             final_float = round(now_float - 0.01, 2)
             to_string = str(final_float)
             cmds.textField(self.text_doublespin, edit=True, text=to_string)
+            cmds.refresh()
             print("float -", 0.1)
 
     def select_grow(self, ignoreInputs):
@@ -445,10 +475,20 @@ class UI ():
         
         cmds.showWindow(donate_window)
         
+    def obj_mode_btn(self, ignore):
+        cmds.selectMode(object=True)
+    
+    def vtx_mode_btn(self, ignore):
+        cmds.selectMode(component=True)
+        cmds.selectType(vertex=True)
+        
 if __name__ == "__main__":
     ui = UI()
     ui.show_ui()
     ui.donate_page_btn()
+    
+    # allowedAreas = ['right', 'left']
+    # cmds.dockControl( area='left', content=ui.window_name, allowedArea=allowedAreas )
     
 else :
     pass

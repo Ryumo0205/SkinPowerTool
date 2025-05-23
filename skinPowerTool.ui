@@ -16,12 +16,6 @@
     <height>480</height>
    </size>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>270</width>
-    <height>480</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>SkinPowerTool</string>
   </property>
@@ -53,9 +47,6 @@
    <property name="text">
     <string>0</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_0_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_set">
    <property name="geometry">
@@ -75,9 +66,6 @@
    <property name="text">
     <string>Set</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_set_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_dot5">
    <property name="geometry">
@@ -96,9 +84,6 @@
    </property>
    <property name="text">
     <string>.5</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>weight_dot5_btn</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_paste">
@@ -122,9 +107,6 @@
    <property name="text">
     <string>Paste</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_paste_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_1">
    <property name="geometry">
@@ -143,9 +125,6 @@
    </property>
    <property name="text">
     <string>1</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>weight_1_btn</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_prune">
@@ -191,9 +170,6 @@
    <property name="text">
     <string>Smooth</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_smooth_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_floatDown">
    <property name="geometry">
@@ -212,9 +188,6 @@
    </property>
    <property name="text">
     <string>v</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>set_float_down</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_grow">
@@ -235,9 +208,6 @@
    <property name="text">
     <string>Grow</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>select_grow</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_plus">
    <property name="geometry">
@@ -256,9 +226,6 @@
    </property>
    <property name="text">
     <string>+</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>weight_plus_btn</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_minus">
@@ -279,9 +246,6 @@
    <property name="text">
     <string>-</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_minus_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_dot75">
    <property name="geometry">
@@ -300,9 +264,6 @@
    </property>
    <property name="text">
     <string>.75</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>weight_dot75_btn</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_round">
@@ -345,9 +306,6 @@
    <property name="text">
     <string>.25</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>weight_dot25_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_copy">
    <property name="geometry">
@@ -369,9 +327,6 @@
    </property>
    <property name="text">
     <string>Copy</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>weight_copy_btn</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="text_prune">
@@ -402,9 +357,6 @@
    <property name="text">
     <string>^</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>set_float_up</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_mirror">
    <property name="geometry">
@@ -426,9 +378,6 @@
    </property>
    <property name="text">
     <string>Mirror</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>mirror_btn</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="text_doublespin">
@@ -505,9 +454,6 @@
    <property name="text">
     <string>↓↓ Append ↓↓</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>append_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_shrink">
    <property name="geometry">
@@ -526,9 +472,6 @@
    </property>
    <property name="text">
     <string>Shrink</string>
-   </property>
-   <property name="+command" stdset="0">
-    <string>select_shrink</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -601,9 +544,6 @@
    <property name="text">
     <string>Search</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>append_btn</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_Donate">
    <property name="geometry">
@@ -623,8 +563,31 @@
    <property name="text">
     <string>Donate Me !</string>
    </property>
-   <property name="+command" stdset="0">
-    <string>select_shrink</string>
+  </widget>
+  <widget class="QPushButton" name="pushButton_ObjMode">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Obj</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_VtxMode">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>170</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vtx</string>
    </property>
   </widget>
  </widget>
